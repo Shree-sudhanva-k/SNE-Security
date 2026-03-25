@@ -52,8 +52,12 @@ function Hero() {
     >
       {/* Background Image with Overlay */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url("/assets/photo-collage.png")' }} // Using one of the provided images
+        className="absolute inset-0 z-0 bg-cover bg-center hidden md:block"
+        style={{ backgroundImage: 'url("/assets/photo-collage-landscape.png")' }}
+      />
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center md:hidden"
+        style={{ backgroundImage: 'url("/assets/photo-collage-potrait.png")' }}
       />
       <div className="absolute inset-0 bg-black/60 z-10" />
 
