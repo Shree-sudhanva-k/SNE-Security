@@ -66,7 +66,7 @@ function Header() {
       <div className={`bg-sne-blue text-white py-1 px-4 text-xs sm:text-sm transition-all duration-300 ${isScrolled ? 'hidden' : 'block'}`}>
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center space-y-1 sm:space-y-0">
           <div className="flex space-x-4">
-            <span>GSTIN: <span className="font-semibold">PENDING</span></span>
+            <span>GSTIN: <span className="font-semibold">29BOKPS4135M1Z8</span></span>
             <span className="hidden sm:inline">|</span>
             <span>ESI / PF Registered</span>
           </div>
@@ -90,7 +90,7 @@ function Header() {
             {/* Logo area */}
             <div className="flex-shrink-0 flex items-center py-2">
               <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center">
-                <img src="/assets/20181025_162507.png" alt="S N Enterprises Logo" className="h-20 sm:h-24 w-auto object-contain" />
+                <img src="/assets/20181025_162507.png" alt="S N Enterprises Logo" className="h-10 sm:h-16 w-auto object-contain" />
               </Link>
             </div>
 

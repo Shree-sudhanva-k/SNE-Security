@@ -24,7 +24,7 @@ function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <Link to="/" onClick={() => window.scrollTo(0, 0)} className="inline-block mb-4">
-              <img src="/assets/20181025_162507.png" alt="S N Enterprises Logo" className="h-12 w-auto brightness-0 invert" />
+              <img src="/assets/20181025_162507.png" alt="S N Enterprises Logo" className="h-16 sm:h-20 w-auto object-contain" />
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
               Providing trained, disciplined, and reliable manpower for corporate offices, residential communities, hospitals, industries, and commercial establishments in Bengaluru.

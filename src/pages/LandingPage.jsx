@@ -10,7 +10,7 @@ import ContactOverview from '../components/ContactOverview';
 
 function LandingPage() {
   return (
-    <div className="flex flex-col min-h-screen pt-20 sm:pt-[72px]">
+    <div className="flex flex-col min-h-screen pt-[96px] md:pt-[128px]">
       <Hero />
       <About />
       <Services />

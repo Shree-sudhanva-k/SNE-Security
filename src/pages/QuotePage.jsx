@@ -29,7 +29,7 @@ function QuotePage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-20 px-4 sm:px-6 lg:px-8 mt-[72px]">
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-20 px-4 sm:px-6 lg:px-8 pt-[96px] md:pt-[128px]">
         <div className="max-w-md w-full bg-white p-10 rounded-xl shadow-xl border-t-4 border-green-500 text-center fade-in-scroll is-visible">
           <CheckCircle className="mx-auto text-green-500 mb-6" size={64} />
           <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Request Received!</h2>
@@ -48,7 +48,7 @@ function QuotePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 bg-pattern-dots flex flex-col items-center py-16 px-4 sm:px-6 lg:px-8 mt-[72px]">
+    <div className="min-h-screen bg-gray-50 bg-pattern-dots flex flex-col items-center py-16 px-4 sm:px-6 lg:px-8 pt-[96px] md:pt-[128px]">
       
       <div className="text-center mb-10 fade-in-scroll is-visible">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-sne-blue mb-4">Request a <span className="text-sne-red">Quote</span></h1>

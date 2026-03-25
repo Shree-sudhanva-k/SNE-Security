@@ -25,11 +25,9 @@ function Services() {
     { icon: <Sparkles size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Housekeeping Services", desc: "Comprehensive cleaning and sanitization solutions." },
     { icon: <Car size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Parking Management", desc: "Efficient traffic flow and valet parking services." },
     { icon: <Wrench size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Facility Maintenance", desc: "Electrical, plumbing, and general building upkeep." },
-    { icon: <Factory size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Industrial Security", desc: "Specialized guarding for factories and plants." },
-    { icon: <Building2 size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Corporate Security", desc: "Access control and reception management for offices." },
-    { icon: <Home size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Residential Security", desc: "24/7 protection for apartments and gated communities." },
     { icon: <Tent size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Event Security", desc: "Crowd control and VIP protection for special events." },
-    { icon: <Package size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Packing & Loading", desc: "Trained staff for logistics and warehouse operations." },
+    { icon: <Package size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Packing & Moving", desc: "Professional packing and safe transportation of goods with trained staff." },
+    { icon: <Package size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Loading & Unloading", desc: "Efficient loading and unloading services ensuring careful handling of items." },
     { icon: <Briefcase size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Office Support Staff", desc: "Peons, pantry boys, and administrative assistants." },
     { icon: <Box size={40} className="text-sne-red mb-4 group-hover:text-white transition-colors" />, title: "Warehouse Manpower", desc: "Skilled and unskilled labor for inventory management." },
   ];
@@ -47,8 +45,8 @@ function Services() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`bg-white p-6 rounded-xl shadow-md hover-lift group border border-gray-100 hover:bg-sne-blue transition-all duration-500 cursor-pointer transform min-h-[220px] flex flex-col justify-center
                 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}
               `}

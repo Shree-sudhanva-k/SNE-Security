@@ -46,14 +46,14 @@ function Hero() {
   }, [displayText, isDeleting, textIndex]);
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="relative h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url("/assets/CRW09564.jpg")' }} // Using one of the provided images
+        style={{ backgroundImage: 'url("/assets/photo-collage.png")' }} // Using one of the provided images
       />
       <div className="absolute inset-0 bg-black/60 z-10" />
 
@@ -69,16 +69,16 @@ function Hero() {
         <p className="mt-6 text-xl sm:text-2xl max-w-3xl mx-auto text-gray-200 drop-shadow-md pb-8">
           Providing trained, disciplined, and reliable manpower for corporate offices, residential communities, hospitals, industries, and commercial establishments.
         </p>
-        
+
         <div className="mt-10 flex justify-center gap-4 flex-col sm:flex-row">
-          <Link 
-            to="/quote" 
+          <Link
+            to="/quote"
             className="bg-sne-red hover:bg-red-700 text-white font-bold py-3 px-8 rounded-md shadow-lg hover:-translate-y-1 transition-all duration-300 text-lg"
           >
             Get a Quote
           </Link>
-          <a 
-            href="tel:+919876543210" 
+          <a
+            href="tel:+919876543210"
             className="bg-transparent border-2 border-white hover:bg-white hover:text-sne-blue text-white font-bold py-3 px-8 rounded-md shadow-lg hover:-translate-y-1 transition-all duration-300 text-lg"
           >
             Call Now
