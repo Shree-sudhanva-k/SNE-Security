@@ -28,12 +28,12 @@ function ContactOverview() {
         </div>
 
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-          
+
           {/* Contact Details & Map */}
           <div className="space-y-8">
             <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100 space-y-6">
               <h3 className="text-2xl font-bold text-sne-blue border-b pb-4">Our Office</h3>
-              
+
               <div className="flex items-start">
                 <div className="bg-red-50 p-3 rounded-full mr-4 shrink-0">
                   <MapPin className="text-sne-red" size={24} />
@@ -41,8 +41,8 @@ function ContactOverview() {
                 <div>
                   <h4 className="font-semibold text-gray-800 text-lg">Address</h4>
                   <p className="text-gray-600 mt-1 leading-relaxed">
-                    #123, 4th Main Road, Corporate Block,<br/>
-                    Bengaluru, Karnataka, India 560001
+                    19, 2nd Cross Rd, RK Block, Nrapathunga Layout,<br />
+                    J.C.Nagar, Bengaluru, Karnataka 560032
                   </p>
                 </div>
               </div>
@@ -54,7 +54,7 @@ function ContactOverview() {
                 <div>
                   <h4 className="font-semibold text-gray-800 text-lg">Phone</h4>
                   <p className="text-gray-600 mt-1">
-                    <a href="tel:+919876543210" className="hover:text-sne-red transition-colors">+91 98765 43210</a><br/>
+                    <a href="tel:+919876543210" className="hover:text-sne-red transition-colors">+91 98765 43210</a><br />
                     <a href="tel:+919876543211" className="hover:text-sne-red transition-colors">+91 98765 43211</a>
                   </p>
                 </div>
@@ -67,7 +67,7 @@ function ContactOverview() {
                 <div>
                   <h4 className="font-semibold text-gray-800 text-lg">Email</h4>
                   <p className="text-gray-600 mt-1">
-                    <a href="mailto:info@snenterprises.com" className="hover:text-sne-red transition-colors">info@snenterprises.com</a><br/>
+                    <a href="mailto:info@snenterprises.com" className="hover:text-sne-red transition-colors">info@snenterprises.com</a><br />
                     <a href="mailto:sales@snenterprises.com" className="hover:text-sne-red transition-colors">sales@snenterprises.com</a>
                   </p>
                 </div>
@@ -80,22 +80,22 @@ function ContactOverview() {
                 <div>
                   <h4 className="font-semibold text-gray-800 text-lg">Working Hours</h4>
                   <p className="text-gray-600 mt-1">
-                    General: Mon - Sat (9:00 AM - 6:00 PM)<br/>
+                    General: Mon - Sat (9:00 AM - 6:00 PM)<br />
                     Security Control: 24/7 Operations
                   </p>
                 </div>
               </div>
             </div>
-            
+
             {/* Map */}
             <div className="h-64 bg-gray-200 rounded-xl overflow-hidden shadow-md border border-gray-100">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9!2d77.59!3d12.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzEyLjAiTiA3N8KwMzUnMjQuM)“F!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
+              <iframe
+                src="https://maps.google.com/maps?q=13.0076167,77.5956749&t=&z=11&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="S N Enterprises Location"
               ></iframe>
@@ -105,37 +105,78 @@ function ContactOverview() {
           {/* Quick Contact Form */}
           <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100 flex flex-col h-full">
             <h3 className="text-2xl font-bold text-sne-blue mb-6">Send an Inquiry</h3>
-            <form className="space-y-5 flex-grow flex flex-col" onSubmit={(e) => { e.preventDefault(); alert('Message sent!'); }}>
+            <form className="space-y-5 flex-grow flex flex-col" onSubmit={async (e) => {
+              e.preventDefault();
+              const btn = e.target.querySelector('button[type="submit"]');
+              const originalText = btn.innerHTML;
+
+              btn.innerHTML = '<span>Sending...</span>';
+              btn.disabled = true;
+
+              const formData = new FormData(e.target);
+              const data = Object.fromEntries(formData.entries());
+              data._subject = "New Inquiry from Website";
+
+              try {
+                await fetch("https://formsubmit.co/ajax/anvithj2304@gmail.com", {
+                  method: "POST",
+                  headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                  body: JSON.stringify(data)
+                });
+
+                // Show success state on the button
+                btn.innerHTML = '<span>Message Sent!</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>';
+                btn.classList.remove('bg-sne-blue', 'hover:bg-blue-900');
+                btn.classList.add('bg-green-500', 'hover:bg-green-600');
+
+                e.target.reset();
+
+                // Revert back after 5 seconds
+                setTimeout(() => {
+                  btn.innerHTML = originalText;
+                  btn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                  btn.classList.add('bg-sne-blue', 'hover:bg-blue-900');
+                  btn.disabled = false;
+                }, 5000);
+
+              } catch (error) {
+                alert('Sorry, there was an error sending your message. Please try again or email us directly.');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+              }
+            }}>
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                <input type="text" id="name" required className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sne-red focus:border-sne-red outline-none transition-all" placeholder="John Doe" />
+                <input type="text" id="name" name="name" required className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sne-red focus:border-sne-red outline-none transition-all" placeholder="John Doe" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                  <input type="tel" id="phone" required className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sne-red focus:border-sne-red outline-none transition-all" placeholder="+91 98765 43210" />
+                  <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxLength="10" title="Please enter exactly 10 digits" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sne-red focus:border-sne-red outline-none transition-all" placeholder="9876543210" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                  <input type="email" id="email" required className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sne-red focus:border-sne-red outline-none transition-all" placeholder="john@example.com" />
+                  <input type="email" id="email" name="email" required className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sne-red focus:border-sne-red outline-none transition-all" placeholder="john@example.com" />
                 </div>
               </div>
               <div>
                 <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">Service Required</label>
-                <select id="service" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sne-red focus:border-sne-red outline-none transition-all bg-white">
+                <select id="service" name="service" required className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sne-red focus:border-sne-red outline-none transition-all bg-white">
                   <option value="">Select a service...</option>
-                  <option value="security">Security Services</option>
-                  <option value="housekeeping">Housekeeping Services</option>
-                  <option value="facility">Facility Maintenance</option>
-                  <option value="other">Other</option>
+                  <option value="Security Services">Security Services</option>
+                  <option value="Housekeeping Services">Housekeeping Services</option>
+                  <option value="Facility Maintenance">Facility Maintenance</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
               <div className="flex-grow">
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                <textarea id="message" rows="4" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sne-red focus:border-sne-red outline-none transition-all resize-none h-full min-h-[120px]" placeholder="How can we help you?"></textarea>
+                <textarea id="message" name="message" rows="4" required className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sne-red focus:border-sne-red outline-none transition-all resize-none h-full min-h-[120px]" placeholder="How can we help you?"></textarea>
               </div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="w-full bg-sne-blue hover:bg-blue-900 text-white font-bold py-4 px-8 rounded-lg transition-colors flex items-center justify-center space-x-2 shadow-lg mt-auto"
               >
                 <span>Send Message</span>

@@ -19,12 +19,30 @@ function QuotePage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate API call
-    console.log("Quote Request Submitted:", formData);
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Optional: you can show a loading state here if you wish, 
+    // but the component already shows the success state immediately.
+    try {
+      const payload = {
+        ...formData,
+        _subject: "New Quote Request from Website",
+        _template: "table",
+        _captcha: "false"
+      };
+
+      await fetch("https://formsubmit.co/ajax/anvithj2304@gmail.com", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      alert('There was an error sending your quote request. Please try again later.');
+    }
   };
 
   if (submitted) {
@@ -36,7 +54,7 @@ function QuotePage() {
           <p className="text-lg text-gray-600 mb-8">
             Thank you for contacting us. Our team will get back to you shortly with a customized manpower service quote.
           </p>
-          <button 
+          <button
             onClick={() => setSubmitted(false)}
             className="text-sne-blue hover:text-sne-red font-semibold transition-colors underine"
           >
@@ -49,7 +67,7 @@ function QuotePage() {
 
   return (
     <div className="min-h-screen bg-gray-50 bg-pattern-dots flex flex-col items-center py-16 px-4 sm:px-6 lg:px-8 pt-[96px] md:pt-[128px]">
-      
+
       <div className="text-center mb-10 fade-in-scroll is-visible">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-sne-blue mb-4">Request a <span className="text-sne-red">Quote</span></h1>
         <p className="text-lg text-gray-600 max-w-xl mx-auto">
@@ -59,7 +77,7 @@ function QuotePage() {
 
       <div className="max-w-3xl w-full bg-white p-8 sm:p-10 rounded-xl shadow-lg border border-gray-100 fade-in-scroll is-visible">
         <form onSubmit={handleSubmit} className="space-y-6">
-          
+
           {/* Row 1 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -68,7 +86,7 @@ function QuotePage() {
             </div>
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone Number <span className="text-sne-red">*</span></label>
-              <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-sne-blue focus:border-sne-blue outline-none transition-all shadow-sm" placeholder="+91 98765 43210" />
+              <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxLength="10" title="Please enter exactly 10 digits" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-sne-blue focus:border-sne-blue outline-none transition-all shadow-sm" placeholder="9876543210" />
             </div>
           </div>
 
@@ -147,7 +165,7 @@ function QuotePage() {
                 WhatsApp
               </a>
             </div>
-            
+
             <button type="submit" className="w-full sm:w-auto bg-sne-red hover:bg-red-700 text-white font-bold py-3 px-10 rounded-md shadow-lg transition-colors flex items-center justify-center space-x-2 text-lg">
               <span>Submit Request</span>
               <Send size={20} />
