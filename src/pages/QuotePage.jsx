@@ -32,7 +32,7 @@ function QuotePage() {
         _captcha: "false"
       };
 
-      await fetch("https://formsubmit.co/ajax/anvithj2304@gmail.com", {
+      await fetch("https://formsubmit.co/ajax/snenterprises3663@gmail.com", {
         method: "POST",
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)
