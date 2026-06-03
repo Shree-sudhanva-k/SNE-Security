@@ -54,8 +54,8 @@ function ContactOverview() {
                 <div>
                   <h4 className="font-semibold text-gray-800 text-lg">Phone</h4>
                   <p className="text-gray-600 mt-1">
-                    <a href="tel:+919876543210" className="hover:text-sne-red transition-colors">+91 98765 43210</a><br />
-                    <a href="tel:+919876543211" className="hover:text-sne-red transition-colors">+91 98765 43211</a>
+                    <a href="tel:+919844212910" className="hover:text-sne-red transition-colors">+91 98442 12910</a><br />
+                    <a href="tel:+919380737125" className="hover:text-sne-red transition-colors">+91 93807 37125</a>
                   </p>
                 </div>
               </div>
