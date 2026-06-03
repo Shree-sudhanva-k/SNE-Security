@@ -158,10 +158,10 @@ function QuotePage() {
           {/* Action Area */}
           <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-gray-100 gap-4">
             <div className="flex space-x-4 w-full sm:w-auto">
-              <a href="tel:+919876543210" className="flex-1 sm:flex-none flex items-center justify-center px-6 py-3 border-2 border-sne-blue text-sne-blue hover:bg-sne-blue hover:text-white rounded-md font-semibold transition-colors">
+              <a href="tel:+919380737125" className="flex-1 sm:flex-none flex items-center justify-center px-6 py-3 border-2 border-sne-blue text-sne-blue hover:bg-sne-blue hover:text-white rounded-md font-semibold transition-colors">
                 Call Us Now
               </a>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none flex items-center justify-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-md font-semibold transition-colors">
+              <a href="https://wa.me/919844212910" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none flex items-center justify-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-md font-semibold transition-colors">
                 WhatsApp
               </a>
             </div>
