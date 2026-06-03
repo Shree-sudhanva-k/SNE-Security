@@ -79,7 +79,11 @@ function Footer() {
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="mr-3 text-sne-red shrink-0" />
-                <a href="tel:+919876543210" className="text-gray-300 hover:text-white transition-colors">+91 98765 43210</a>
+                <a href="tel:+919844212910" className="text-gray-300 hover:text-white transition-colors">+91 98442 12910</a>
+              </li>
+              <li className="flex items-center">
+                <Phone size={20} className="mr-3 text-sne-red shrink-0" />
+                <a href="tel:+919380737125" className="text-gray-300 hover:text-white transition-colors">+91 9380737125</a>
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-3 text-sne-red shrink-0" />
