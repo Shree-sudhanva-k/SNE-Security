@@ -71,9 +71,9 @@ function Header() {
             <span>ESI / PF Registered</span>
           </div>
           <div className="flex space-x-4 items-center">
-            <a href="tel:+919876543210" className="flex items-center hover:text-gray-300 transition-colors">
+            <a href="tel:+919844212910" className="flex items-center hover:text-gray-300 transition-colors">
               <Phone size={14} className="mr-1" />
-              +91 98765 43210
+              +91 98442 12910
             </a>
             <a href="mailto:info@snenterprises.com" className="flex items-center hover:text-gray-300 transition-colors">
               <Mail size={14} className="mr-1" />
